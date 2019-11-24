@@ -23,8 +23,8 @@ public class CategoriaTipoImovel {
 	@Column(name="ATIVO")
 	private Boolean ativo;
 	
-	@ManyToOne(optional=false)
-	@JoinColumn(name="IDTIPOIMOVEL")
+	@ManyToOne
+	@JoinColumn(name="idtipoimovel", nullable = false)
     private TipoImovel tipoImovel;
 
 	public long getId() {

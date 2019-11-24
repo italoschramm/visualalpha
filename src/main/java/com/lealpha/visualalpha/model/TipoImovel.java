@@ -2,10 +2,8 @@ package com.lealpha.visualalpha.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -27,11 +25,10 @@ public class TipoImovel {
 	@Column(name="ATIVO")
 	private Boolean ativo;
 	
-	@OneToMany(mappedBy = "tipoImovel", targetEntity = CategoriaTipoImovel.class, 
-			fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "tipoImovel")
 	private List<CategoriaTipoImovel> categoriaTipoImovel;
 	
-	@OneToOne(mappedBy = "tipoImovel")
+	@OneToOne
     private Imovel imovel;
 
 	public long getId() {

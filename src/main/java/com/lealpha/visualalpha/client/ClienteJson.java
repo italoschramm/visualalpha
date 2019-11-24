@@ -17,7 +17,7 @@ public class ClienteJson {
     private String sobrenome;
 
 	@SerializedName("cpf")
-    private int cpf;
+    private String cpf;
 
 	public Long getIdUsuario() {
 		return idUsuario;
@@ -51,11 +51,11 @@ public class ClienteJson {
 		this.sobrenome = sobrenome;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

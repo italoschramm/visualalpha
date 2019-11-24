@@ -22,8 +22,8 @@ public class Cliente {
 	@Column(name = "IDCLIENTE")
 	private long id;
 	
-	@OneToOne(optional=false)
-    @JoinColumn(name = "usuario", referencedColumnName = "IDUSUARIO")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "IDUSUARIO", referencedColumnName = "IDUSUARIO")
 	private Usuario usuario;
 	
 	@Column(name="EMAIL")
@@ -36,10 +36,11 @@ public class Cliente {
     private String sobrenome;
 
 	@Column(name="CPF")
-    private int cpf;
+    private String cpf;
 	
-	@OneToMany(mappedBy = "cliente", targetEntity = Imovel.class, 
-			fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL,
+				fetch = FetchType.EAGER,
+				mappedBy = "cliente")
 	private List<Imovel> imovel;
 
 	public long getId() {
@@ -74,11 +75,11 @@ public class Cliente {
 		this.sobrenome = sobrenome;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

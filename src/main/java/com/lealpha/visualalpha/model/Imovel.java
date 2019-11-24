@@ -3,6 +3,7 @@ package com.lealpha.visualalpha.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -11,7 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CLIENTE")
+@Table(name="IMOVEL")
 public class Imovel {
 
 	@Id
@@ -68,12 +69,11 @@ public class Imovel {
     @JoinColumn(name = "tipoTransacao", referencedColumnName = "IDTIPOTRANSACAO")
 	private TipoTransacao tipoTransacao;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tipoImovel", referencedColumnName = "IDTIPOIMOVEL")
+	@OneToOne(mappedBy = "imovel", cascade = CascadeType.ALL)
 	private TipoImovel tipoImovel;
 	
-	@ManyToOne
-	@JoinColumn(name="idcliente")
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="idcliente", nullable = false)
     private Cliente cliente;
 	
 	@Column(name="FOTOS")

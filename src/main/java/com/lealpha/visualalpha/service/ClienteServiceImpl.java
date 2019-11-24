@@ -1,11 +1,12 @@
 package com.lealpha.visualalpha.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lealpha.visualalpha.client.ClienteJson;
 import com.lealpha.visualalpha.exception.BuscaException;
-import com.lealpha.visualalpha.model.CategoriaTipoImovel;
 import com.lealpha.visualalpha.model.Cliente;
 import com.lealpha.visualalpha.model.TipoImovel;
 import com.lealpha.visualalpha.model.Usuario;
@@ -40,6 +41,18 @@ public class ClienteServiceImpl implements ClienteService{
 			return false;
 		}
 		return true;
+	}
+	
+	@Override
+	public List<Cliente> listarAtivos() {
+		List<Cliente> listaCliente = clienteRepository.findByAtivos();
+		return listaCliente;
+	}
+
+	@Override
+	public List<Cliente> listarInativos() {
+		List<Cliente> listaCliente = clienteRepository.findByInativos();
+		return listaCliente;
 	}
 
 }
