@@ -24,6 +24,9 @@ public class TipoImovel {
 	@Column(name="DESCRICAO")
 	private String descricao;
 	
+	@Column(name="ATIVO")
+	private Boolean ativo;
+	
 	@OneToMany(mappedBy = "tipoImovel", targetEntity = CategoriaTipoImovel.class, 
 			fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<CategoriaTipoImovel> categoriaTipoImovel;
@@ -61,6 +64,14 @@ public class TipoImovel {
 
 	public void setCategoriaTipoImovel(List<CategoriaTipoImovel> categoriaTipoImovel) {
 		this.categoriaTipoImovel = categoriaTipoImovel;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
 	}
 	
 }

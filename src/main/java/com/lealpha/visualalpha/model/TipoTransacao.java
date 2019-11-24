@@ -1,10 +1,13 @@
 package com.lealpha.visualalpha.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,8 +22,12 @@ public class TipoTransacao {
 	@Column(name="DESCRICAO")
 	private String descricao;
 	
-	@OneToOne(mappedBy = "tipoTransacao")
-    private Imovel imovel;
+	@Column(name="ATIVO")
+	private Boolean ativo;
+	
+	@OneToMany
+	@JoinColumn(name="idimovel")
+    private List<Imovel> imovel;
 
 	public long getId() {
 		return id;
@@ -38,12 +45,20 @@ public class TipoTransacao {
 		this.descricao = descricao;
 	}
 
-	public Imovel getImovel() {
+	public List<Imovel> getImovel() {
 		return imovel;
 	}
 
-	public void setImovel(Imovel imovel) {
+	public void setImovel(List<Imovel> imovel) {
 		this.imovel = imovel;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
 	}
 	
 }

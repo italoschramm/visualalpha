@@ -22,7 +22,7 @@ public class Cliente {
 	@Column(name = "IDCLIENTE")
 	private long id;
 	
-	@OneToOne
+	@OneToOne(optional=false)
     @JoinColumn(name = "usuario", referencedColumnName = "IDUSUARIO")
 	private Usuario usuario;
 	
@@ -89,6 +89,13 @@ public class Cliente {
 	public void setImovel(List<Imovel> imovel) {
 		this.imovel = imovel;
 	}
-	
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
 }

@@ -11,7 +11,7 @@ import com.lealpha.visualalpha.exception.AutenticacaoException;
 import com.lealpha.visualalpha.service.UsuarioService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping
 public class LoginController {
 
 	@Autowired
@@ -20,8 +20,8 @@ public class LoginController {
 	@PostMapping("/login")
     public String autentica(@RequestBody Login login) {
 		if(usuarioService.autenticarUsuario(login.getLogin(), login.getSenha()))
-			return "OK";
+			return "Logado com sucesso!";
 		else
 			throw new AutenticacaoException("Login e senha inválidos!" );
-		}
+	}
 }

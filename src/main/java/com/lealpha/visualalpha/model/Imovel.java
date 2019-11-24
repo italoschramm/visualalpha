@@ -64,7 +64,7 @@ public class Imovel {
 	@Column(name="VALORALUGUEL")
 	private Float valorAluguel;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "tipoTransacao", referencedColumnName = "IDTIPOTRANSACAO")
 	private TipoTransacao tipoTransacao;
 	

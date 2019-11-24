@@ -20,7 +20,10 @@ public class CategoriaTipoImovel {
 	@Column(name="DESCRICAO")
 	private String descricao;
 	
-	@ManyToOne
+	@Column(name="ATIVO")
+	private Boolean ativo;
+	
+	@ManyToOne(optional=false)
 	@JoinColumn(name="IDTIPOIMOVEL")
     private TipoImovel tipoImovel;
 
@@ -46,6 +49,14 @@ public class CategoriaTipoImovel {
 
 	public void setTipoImovel(TipoImovel tipoImovel) {
 		this.tipoImovel = tipoImovel;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
 	}
 	
 }
