@@ -5,9 +5,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +17,8 @@ import javax.persistence.Table;
 public class TipoImovel {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_TIPOIMOVEL")
+	@SequenceGenerator(name="SEQ_TIPOIMOVEL", sequenceName="SEQ_TIPOIMOVEL")
 	@Column(name = "IDTIPOIMOVEL")
 	private long id;
 	

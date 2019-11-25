@@ -2,7 +2,7 @@ package com.lealpha.visualalpha.service;
 
 import java.util.List;
 
-import com.lealpha.visualalpha.model.Usuario;
+import com.lealpha.visualalpha.response.UsuarioRespJson;
 
 public interface UsuarioService {
 
@@ -10,7 +10,7 @@ public interface UsuarioService {
 	
 	public Boolean cadastrarUsuario(String login, String senha, Boolean ativo);
 	
-	public List<Usuario> listarAtivos();
+	public List<UsuarioRespJson> listarAtivos();
 	
-	public List<Usuario> listarInativos();
+	public List<UsuarioRespJson> listarInativos();
 }

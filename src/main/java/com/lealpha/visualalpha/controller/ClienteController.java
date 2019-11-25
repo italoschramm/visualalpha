@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lealpha.visualalpha.client.ClienteJson;
 import com.lealpha.visualalpha.exception.SalvarException;
-import com.lealpha.visualalpha.model.Cliente;
+import com.lealpha.visualalpha.response.ClienteRespJson;
 import com.lealpha.visualalpha.service.ClienteService;
 
 @RestController
@@ -30,12 +30,12 @@ public class ClienteController {
 	}
 	
 	@GetMapping("/listarAtivos")
-    public List<Cliente> listarAtivos() {
+    public List<ClienteRespJson> listarAtivos() {
 		return clienteService.listarAtivos();
 	}
 	
 	@GetMapping("/listarInativos")
-    public List<Cliente> listarInativos() {
+    public List<ClienteRespJson> listarInativos() {
 		return clienteService.listarInativos();
 	}
 

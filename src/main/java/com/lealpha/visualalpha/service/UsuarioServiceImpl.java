@@ -1,14 +1,15 @@
 package com.lealpha.visualalpha.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lealpha.visualalpha.exception.BuscaException;
 import com.lealpha.visualalpha.exception.SalvarException;
 import com.lealpha.visualalpha.model.Usuario;
 import com.lealpha.visualalpha.repository.UsuarioRepository;
+import com.lealpha.visualalpha.response.UsuarioRespJson;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService{
@@ -47,14 +48,24 @@ public class UsuarioServiceImpl implements UsuarioService{
 	}
 
 	@Override
-	public List<Usuario> listarAtivos() {
+	public List<UsuarioRespJson> listarAtivos() {
 		List<Usuario> listaUsuario = usuarioRepository.findByAtivos();
-		return listaUsuario;
+		List<UsuarioRespJson> listaUsuarioResp = new ArrayList<UsuarioRespJson>();
+		for(Usuario usuario : listaUsuario) {
+			UsuarioRespJson usuarioResp = new UsuarioRespJson(usuario);
+			listaUsuarioResp.add(usuarioResp);
+		}
+		return listaUsuarioResp;
 	}
 
 	@Override
-	public List<Usuario> listarInativos() {
+	public List<UsuarioRespJson> listarInativos() {
 		List<Usuario> listaUsuario = usuarioRepository.findByInativos();
-		return listaUsuario;
+		List<UsuarioRespJson> listaUsuarioResp = new ArrayList<UsuarioRespJson>();
+		for(Usuario usuario : listaUsuario) {
+			UsuarioRespJson usuarioResp = new UsuarioRespJson(usuario);
+			listaUsuarioResp.add(usuarioResp);
+		}
+		return listaUsuarioResp;
 	}
 }

@@ -3,9 +3,11 @@ package com.lealpha.visualalpha.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -13,8 +15,9 @@ import javax.persistence.Table;
 public class CategoriaTipoImovel {
 	
 	@Id
-	@GeneratedValue
 	@Column(name = "IDCATEGORIATIPOIMOVEL")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_CATEGORIATIPOIMOVEL")
+	@SequenceGenerator(name="SEQ_CATEGORIATIPOIMOVEL", sequenceName="SEQ_CATEGORIATIPOIMOVEL")
 	private long id;
 
 	@Column(name="DESCRICAO")

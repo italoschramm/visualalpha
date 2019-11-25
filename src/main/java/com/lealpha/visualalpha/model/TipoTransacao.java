@@ -5,9 +5,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +17,8 @@ import javax.persistence.Table;
 public class TipoTransacao {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_TIPOTRANSACAO")
+	@SequenceGenerator(name="SEQ_TIPOTRANSACAO", sequenceName="SEQ_TIPOTRANSACAO")
 	@Column(name="IDTIPOTRANSACAO")
 	private long id;
 	

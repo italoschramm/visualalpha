@@ -5,10 +5,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +18,8 @@ import javax.persistence.Table;
 public class Imovel {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_IMOVEL")
+	@SequenceGenerator(name="SEQ_IMOVEL", sequenceName="SEQ_IMOVEL")
 	@Column(name = "IDIMOVEL")
 	private long id;
 	
@@ -78,4 +81,6 @@ public class Imovel {
 	
 	@Column(name="FOTOS")
 	private String fotos;
+	
+	
 }

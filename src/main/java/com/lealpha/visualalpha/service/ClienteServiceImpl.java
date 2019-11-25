@@ -1,5 +1,6 @@
 package com.lealpha.visualalpha.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,10 @@ import org.springframework.stereotype.Service;
 import com.lealpha.visualalpha.client.ClienteJson;
 import com.lealpha.visualalpha.exception.BuscaException;
 import com.lealpha.visualalpha.model.Cliente;
-import com.lealpha.visualalpha.model.TipoImovel;
 import com.lealpha.visualalpha.model.Usuario;
 import com.lealpha.visualalpha.repository.ClienteRepository;
 import com.lealpha.visualalpha.repository.UsuarioRepository;
+import com.lealpha.visualalpha.response.ClienteRespJson;
 
 @Service
 public class ClienteServiceImpl implements ClienteService{
@@ -44,15 +45,25 @@ public class ClienteServiceImpl implements ClienteService{
 	}
 	
 	@Override
-	public List<Cliente> listarAtivos() {
+	public List<ClienteRespJson> listarAtivos() {
 		List<Cliente> listaCliente = clienteRepository.findByAtivos();
-		return listaCliente;
+		List<ClienteRespJson> listaClienteResp = new ArrayList<ClienteRespJson>();
+		for(Cliente cliente : listaCliente) {
+			ClienteRespJson clienteResp = new ClienteRespJson(cliente);
+			listaClienteResp.add(clienteResp);
+		}
+		return listaClienteResp;
 	}
 
 	@Override
-	public List<Cliente> listarInativos() {
+	public List<ClienteRespJson> listarInativos() {
 		List<Cliente> listaCliente = clienteRepository.findByInativos();
-		return listaCliente;
+		List<ClienteRespJson> listaClienteResp = new ArrayList<ClienteRespJson>();
+		for(Cliente cliente : listaCliente) {
+			ClienteRespJson clienteResp = new ClienteRespJson(cliente);
+			listaClienteResp.add(clienteResp);
+		}
+		return listaClienteResp;
 	}
 
 }

@@ -1,9 +1,13 @@
 package com.lealpha.visualalpha.util;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.imageio.ImageIO;
 
 public class Util {
 
@@ -57,4 +61,13 @@ public class Util {
 	public String convMetroToKm(float valor) {
 		return (String.format("%.2f", (valor/1000)));
 	}
+	
+	public void decodeToImage(Base64 base64) {
+		 
+		byte[] base64Val = Base64.getDecoder().decode();  
+        writeByteToImageFile(base64Val, "image.png");
+		try (OutputStream stream = new FileOutputStream("c:/decode/abc.bmp")) {
+		    stream.write(data);
+		}
+    }
 }
