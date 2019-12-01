@@ -1,11 +1,36 @@
-package com.lealpha.visualalpha.client;
+package com.lealpha.visualalpha.response;
 
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
+import com.lealpha.visualalpha.client.FotoJson;
+import com.lealpha.visualalpha.model.Imovel;
 
-public class ImovelJson {
+public class ImovelRespJson {
 	
+	public ImovelRespJson(Imovel imovel) {
+		this.cep = imovel.getCep();
+		this.estado = imovel.getEstado();
+		this.cidade = imovel.getCidade();
+		this.bairro = imovel.getBairro();
+		this.endereco = imovel.getEndereco();
+		this.numero = imovel.getNumero();
+		this.complemento = imovel.getComplemento();
+		this.quartos = imovel.getQuartos();
+		this.suites = imovel.getSuites();
+		this.vagasGaragem = imovel.getVagasGaragem();
+		this.areaUtil = imovel.getAreaUtil();
+		this.areaTotal = imovel.getAreaTotal();
+		this.descricao = imovel.getDescricao();
+		this.valorVenda = imovel.getValorVenda();
+		this.valorAluguel = imovel.getValorAluguel();
+		this.idTipoTransacao = imovel.getTipoTransacao().getId();
+		this.idTipoImovel = imovel.getTipoImovel().getId();
+	    this.idCliente = imovel.getCliente().getId();
+		//this.fotos = imovel.getFotos();
+		this.ativo = imovel.isAtivo();
+	}
+
 	@SerializedName("cep")
 	private String cep;
 	
@@ -225,5 +250,5 @@ public class ImovelJson {
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
-
+	
 }

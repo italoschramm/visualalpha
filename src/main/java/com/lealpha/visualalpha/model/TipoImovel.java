@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -31,8 +31,9 @@ public class TipoImovel {
 	@OneToMany(mappedBy = "tipoImovel")
 	private List<CategoriaTipoImovel> categoriaTipoImovel;
 	
-	@OneToOne
-    private Imovel imovel;
+	@OneToMany
+	@JoinColumn(name="idimovel")
+    private List<Imovel> imovel;
 
 	public long getId() {
 		return id;
@@ -50,11 +51,11 @@ public class TipoImovel {
 		this.descricao = descricao;
 	}
 
-	public Imovel getImovel() {
+	public List<Imovel> getImovel() {
 		return imovel;
 	}
 
-	public void setImovel(Imovel imovel) {
+	public void setImovel(List<Imovel> imovel) {
 		this.imovel = imovel;
 	}
 
