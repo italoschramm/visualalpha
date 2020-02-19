@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lealpha.visualalpha.exception.AutenticacaoException;
 import com.lealpha.visualalpha.exception.SalvarException;
 import com.lealpha.visualalpha.model.Usuario;
 import com.lealpha.visualalpha.repository.UsuarioRepository;
@@ -16,6 +17,15 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Override
+    public Usuario carregaUsuario(String login) throws AutenticacaoException {
+        Usuario usuario = usuarioRepository.findByLogin(login);
+        if (usuario != null) {
+            return usuario;
+        }
+        throw new AutenticacaoException("Usuário não encontrado!");
+    }
 	
 	@Override
 	public Boolean autenticarUsuario(String login, String senha) {

@@ -37,9 +37,6 @@ public class Cliente {
 	
 	@Column(name="SOBRENOME")
     private String sobrenome;
-
-	@Column(name="CPF")
-    private String cpf;
 	
 	@OneToMany(cascade = CascadeType.ALL,
 				fetch = FetchType.EAGER,
@@ -76,14 +73,6 @@ public class Cliente {
 
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 
 	public List<Imovel> getImovel() {

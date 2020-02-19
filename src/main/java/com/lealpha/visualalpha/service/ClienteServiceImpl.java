@@ -30,7 +30,6 @@ public class ClienteServiceImpl implements ClienteService{
 			throw new BuscaException("Usuário não localizado!" );
 		
 		Cliente clienteSalvar = new Cliente();
-		clienteSalvar.setCpf(cliente.getCpf());
 		clienteSalvar.setEmail(cliente.getEmail());
 		clienteSalvar.setNome(cliente.getNome());
 		clienteSalvar.setSobrenome(cliente.getSobrenome());

@@ -6,7 +6,6 @@ import com.lealpha.visualalpha.model.Cliente;
 public class ClienteRespJson {
 	
 	public ClienteRespJson(Cliente cliente) {
-		this.cpf = cliente.getCpf();
 		this.email = cliente.getEmail();
 		this.idCliente = cliente.getId();
 		this.idUsuario = cliente.getUsuario().getId();
@@ -72,11 +71,4 @@ public class ClienteRespJson {
 		this.sobrenome = sobrenome;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
 }
