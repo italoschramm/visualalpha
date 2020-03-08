@@ -45,8 +45,8 @@ public class UsuarioServiceImpl implements UsuarioService{
 			throw new SalvarException("Login já existe!" );
 		
 		Usuario usuario = new Usuario();
-		usuario.setLogin(login);
-		usuario.setSenha(senha);
+		usuario.setUsername(login);
+		usuario.setPassword(senha);
 		usuario.setAtivo(ativo);
 		try {
 			usuarioRepository.save(usuario);

@@ -12,11 +12,11 @@ import com.lealpha.visualalpha.model.Usuario;
 @Repository
 public interface UsuarioRepository extends CrudRepository<Usuario, Long>{
 
-	@Query(value = "SELECT * FROM USUARIO WHERE LOGIN = :login", nativeQuery = true)
-	public Usuario findByLogin(@Param("login") String login);
+	@Query(value = "SELECT * FROM USUARIO WHERE USERNAME = :username", nativeQuery = true)
+	public Usuario findByLogin(@Param("username") String username);
 	
-	@Query(value = "SELECT * FROM USUARIO WHERE LOGIN = :login AND SENHA = :senha AND ATIVO = TRUE", nativeQuery = true)
-	public Usuario findByLoginSenhaAtivo(@Param("login") String login, @Param("senha") String senha);
+	@Query(value = "SELECT * FROM USUARIO WHERE USERNAME = :username AND PASSWORD = :password AND ATIVO = TRUE", nativeQuery = true)
+	public Usuario findByLoginSenhaAtivo(@Param("username") String login, @Param("password") String password);
 	
 	@Query(value = "SELECT * FROM USUARIO WHERE ATIVO = TRUE", nativeQuery = true)
 	public List<Usuario> findByAtivos();

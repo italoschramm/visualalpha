@@ -17,11 +17,11 @@ public class LoginController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@PostMapping("/login")
-    public String autentica(@RequestBody Login login) {
-		if(usuarioService.autenticarUsuario(login.getLogin(), login.getSenha()))
-			return "Logado com sucesso!";
-		else
-			throw new AutenticacaoException("Login e senha inválidos!" );
-	}
+//	@PostMapping("/login")
+//    public String autentica(@RequestBody Login login) {
+//		if(usuarioService.autenticarUsuario(login.getLogin(), login.getSenha()))
+//			return "Logado com sucesso!";
+//		else
+//			throw new AutenticacaoException("Login e senha inválidos!" );
+//	}
 }

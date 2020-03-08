@@ -7,8 +7,8 @@ public class UsuarioRespJson {
 
 	public UsuarioRespJson(Usuario usuario) {
 		this.idUsuario = usuario.getId();
-		this.login = usuario.getLogin();
-		this.senha = usuario.getSenha();
+		this.login = usuario.getUsername();
+		this.senha = usuario.getPassword();
 		this.ativo = usuario.getAtivo();
 	}
 	
