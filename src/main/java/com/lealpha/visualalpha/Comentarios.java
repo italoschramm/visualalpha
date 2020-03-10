@@ -2,6 +2,11 @@ package com.lealpha.visualalpha;
 
 public @interface Comentarios {
 
+	/*0.0.04 - 09/03/2020 -Italo Schramm
+	 *  Ajustes nome colunas model Imovel
+	 */
+	
+	
 	/*0.0.03 - 07/03/2020 -Italo Schramm
 	 *  Implementação do jwt
 	 */

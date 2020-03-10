@@ -68,15 +68,15 @@ public class Imovel {
 	private Float valorAluguel;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tipoTransacao", referencedColumnName = "IDTIPOTRANSACAO")
+    @JoinColumn(name = "IDTIPOTRANSACAO", referencedColumnName = "IDTIPOTRANSACAO")
 	private TipoTransacao tipoTransacao;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "tipoImovel", referencedColumnName = "IDTIPOIMOVEL")
+	@JoinColumn(name = "IDTIPOIMOVEL", referencedColumnName = "IDTIPOIMOVEL")
 	private TipoImovel tipoImovel;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idcliente", nullable = false)
+	@JoinColumn(name="IDCLIENTE", nullable = false)
     private Cliente cliente;
 	
 	@Column(name="FOTOS")
